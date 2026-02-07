@@ -24,11 +24,8 @@ A beautiful, modern digital clock built with React using CDN links (no build too
 
         Animated icons and separators
 
-# 🚀 Live Demo
-
-Try it here! <!-- Add your GitHub Pages link here -->
-
-https://via.placeholder.com/800x450/1a1a2e/ffffff?text=Digital+Clock+React+App <!-- Add actual screenshot -->
+<div align="center"> <h2>🎯 LIVE DEMO</h2> <a href="https://inspiring-bombolone-9e49ca.netlify.app/" target="_blank"> <img src="https://img.shields.io/badge/🌐_LIVE_DEMO-Click_Here!-00c7b7?style=for-the-badge&logo=netlify&logoColor=white" alt="Live Demo" width="300"> </a> 
+<p>👉 <a href="https://inspiring-bombolone-9e49ca.netlify.app/" target="_blank" style="font-size: 1.2em; font-weight: bold; color: #00c7b7;">https://inspiring-bombolone-9e49ca.netlify.app/</a></p> </div>
 
 # 🛠️ Technologies Used
 
