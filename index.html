@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello React!</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script>
+      function App() {
+        // const time = new Date().toLocaleTimeString();
+        const [datetime, setDateTime] = React.useState({
+          date: new Date().toLocaleDateString("id-ID", {
+            timeZone: "Asia/Jakarta",
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          }),
+          time: new Date().toLocaleTimeString("id-ID", {
+            timeZone: "Asia/Jakarta",
+          }),
+        });
+
+        React.useEffect(function () {
+          const interval = setInterval(function () {
+            const now = new Date();
+
+            setDateTime({
+              date: now.toLocaleDateString("id-ID", {
+                timeZone: "Asia/Jakarta",
+                weekday: "long",
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              }),
+              time: now.toLocaleTimeString("id-ID", {
+                timeZone: "Asia/Jakarta",
+              }),
+            });
+          }, 1000);
+          return () => clearInterval(interval);
+        }, []);
+        return React.createElement(
+          "div",
+          { className: "container" },
+          React.createElement(
+            "div",
+            { className: "clock-container" },
+            React.createElement(
+              "div",
+              { className: "header" },
+              React.createElement("i", { className: "fas fa-clock" }),
+              " Digital Clock",
+            ),
+            React.createElement(
+              "div",
+              { className: "greeting" },
+              "Hello React!",
+            ),
+            React.createElement(
+              "div",
+              { className: "time-display" },
+              datetime.time,
+            ),
+            React.createElement(
+              "div",
+              { className: "date-display" },
+              datetime.date,
+            ),
+            React.createElement(
+              "div",
+              { className: "footer" },
+              React.createElement("i", { className: "fas fa-heart" }),
+              " Live updating every second",
+            ),
+          ),
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(React.createElement(App));
+    </script>
+  </body>
+</html>

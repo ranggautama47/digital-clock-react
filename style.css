@@ -1,0 +1,238 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  color: #fff;
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
+}
+
+.clock-container {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  padding: 40px;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 0 20px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.clock-container::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(120, 119, 198, 0.1) 0%,
+    transparent 70%
+  );
+  animation: pulse 8s infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.header {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #64dfdf;
+  text-shadow: 0 0 10px rgba(100, 223, 223, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.header i {
+  font-size: 2rem;
+  animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.greeting {
+  font-size: 2.5rem;
+  color: #ffd166;
+  margin-bottom: 20px;
+  font-weight: 500;
+  text-shadow: 0 0 15px rgba(255, 209, 102, 0.4);
+  letter-spacing: 1px;
+}
+
+.time-display {
+  font-family: "Orbitron", sans-serif;
+  font-size: 5.5rem;
+  font-weight: 700;
+  color: #06d6a0;
+  margin: 30px 0;
+  text-shadow: 0 0 20px rgba(6, 214, 160, 0.7);
+  letter-spacing: 3px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  border-radius: 15px;
+  border: 2px solid rgba(6, 214, 160, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.time-display::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(6, 214, 160, 0.2),
+    transparent
+  );
+  z-index: -1;
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.date-display {
+  font-size: 1.8rem;
+  color: #a9def9;
+  margin: 25px 0 40px;
+  padding: 15px 30px;
+  background: rgba(169, 222, 249, 0.1);
+  border-radius: 12px;
+  display: inline-block;
+  font-weight: 400;
+  border: 1px solid rgba(169, 222, 249, 0.2);
+}
+
+.footer {
+  font-size: 1rem;
+  color: #cdb4db;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(205, 180, 219, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.footer i {
+  color: #ff6b6b;
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .clock-container {
+    padding: 30px 20px;
+  }
+
+  .header {
+    font-size: 1.5rem;
+  }
+
+  .greeting {
+    font-size: 2rem;
+  }
+
+  .time-display {
+    font-size: 3.5rem;
+    padding: 15px;
+    letter-spacing: 2px;
+  }
+
+  .date-display {
+    font-size: 1.4rem;
+    padding: 12px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .clock-container {
+    padding: 25px 15px;
+  }
+
+  .time-display {
+    font-size: 2.8rem;
+    letter-spacing: 1px;
+  }
+
+  .date-display {
+    font-size: 1.2rem;
+  }
+
+  .greeting {
+    font-size: 1.8rem;
+  }
+}
+
+/* Sekunder dan milidetik (opsional untuk efek tambahan) */
+.separator {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
