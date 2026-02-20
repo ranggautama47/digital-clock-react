@@ -40,7 +40,7 @@ A beautiful, modern digital clock built with React using CDN links (no build too
     Google Fonts - Typography (Orbitron, Poppins)
 
 # 📁 Project Structure
-
+```
 text
 
 digital-clock-react/
@@ -51,6 +51,7 @@ digital-clock-react/
 with all animations
 
 └── README.md # This documentation
+```
 
 🎮 Quick Start
 Option 1: Direct Use
